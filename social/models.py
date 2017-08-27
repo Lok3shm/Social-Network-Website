@@ -11,6 +11,9 @@ class UserProfile(models.Model):
 	website     = models.URLField(default='')
 	phone		= models.IntegerField(default=0)	
 
+
+	
+
 def create_profile(sender, **kwargs):
 	if kwargs['created']:
 		user_profile = UserProfile.objects.create(user=kwargs['instance'])

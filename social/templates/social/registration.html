@@ -1,0 +1,12 @@
+{% extends 'social/base.html' %}
+
+{% block body%}
+	<div class="container">
+		<h3>Register</h3>
+	  	<form class="col-md-6" method="post">
+	  		{% csrf_token %}
+	  		{{ form.as_p }}
+	  		<button type="submit" class="btn btn-primary">Sign Up</button>
+	  	</form>
+  	</div>
+{% endblock %}
