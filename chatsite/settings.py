@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #'chatsite.middleware.LoginRequired',
 ]
 
 ROOT_URLCONF = 'chatsite.urls'
@@ -100,7 +101,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
@@ -121,3 +121,20 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/'
+
+LOGIN_URL = '/login/'
+
+# lOGIN_EXEMPT_URLS = (
+#         r'/logout/$',
+#         r'^/register/$',
+#         r'password-reset/$',
+#         r'password_reset/done/$',
+#         r'password_reset/confirm/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$',
+#         r'password_reset/complete/$',
+    
+#     )
+
+
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025

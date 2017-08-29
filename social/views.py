@@ -3,6 +3,8 @@ from social.forms import *
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 
 
 # Create your views here.
@@ -22,25 +24,26 @@ def register(request):
 		args = {'form': form}
 		return render(request, 'social/registration.html', args)
 
-
+@login_required
 def profile(request):
 	args = {'user' : request.user}
 	return render(request, 'social/profile.html', args)
-
+	
+@login_required
 def editprofile(request):
 	if request.method =='POST':
 		form = EditProfileForm(request.POST, instance=request.user)
 
 		if form.is_valid():
 			form.save()
-			return redirect('/profile')
+			return redirect(reverse('social:profile'))
 
 	else:
 		form = EditProfileForm(instance=request.user)
 		args = {'form' : form}
 		return render(request, 'social/editprofile.html', args)
 
-
+@login_required
 def change_password(request):
 	if request.method =='POST':
 		form = PasswordChangeForm(data=request.POST, user=request.user)
@@ -48,10 +51,10 @@ def change_password(request):
 		if form.is_valid():
 			form.save()
 			update_session_auth_hash(request, form.user)
-			return redirect('/profile')
+			return redirect(reverse('social:profile'))
 
 		else:
-			return redirect('/edit-password')
+			return redirect(reverse('social:change-password'))
 
 
 	else:
