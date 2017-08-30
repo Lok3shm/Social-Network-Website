@@ -18,7 +18,8 @@
 				<p> About Me :  {{ user.userprofile.description }}</p>
 				<p> City     :  {{ user.userprofile.city }}</p>	
 				<p> Website  :  {{ user.userprofile.website }}</p>	
-				<p> Phone    :  {{ user.userprofile.phone }}</p>		
+				<p> Phone    :  {{ user.userprofile.phone }}</p>
+				<img src="{{ user.userprofile.image.url }}" class="img-fluid" alt="Responsive image" width="240" height="260">		
 			</div>
 
 			<div class="col-md-6">

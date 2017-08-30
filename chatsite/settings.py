@@ -120,6 +120,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'chatsite/media')
+MEDIA_URL = '/media/'
+
+
+
 LOGIN_REDIRECT_URL = '/'
 
 LOGIN_URL = '/login/'
