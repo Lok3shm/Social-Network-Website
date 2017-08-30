@@ -8,9 +8,6 @@ from django.urls import reverse
 
 
 # Create your views here.
-def home(request):
-	return render(request, 'social/home.html')
-
 
 def register(request):
 	if request.method =='POST':
