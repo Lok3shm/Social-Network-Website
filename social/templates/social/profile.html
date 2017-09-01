@@ -18,7 +18,9 @@
 				<p> City     :  {{ user.userprofile.city }}</p>	
 				<p> Website  :  {{ user.userprofile.website }}</p>	
 				<p> Phone    :  {{ user.userprofile.phone }}</p>
-				<img src="{{ user.userprofile.image.url }}" class="img-fluid" alt="Responsive image" width="240" height="260">		
+				{% if user.userprofile.image %}
+				<img src="{{ user.userprofile.image.url }}" class="img-fluid" alt="Responsive image" width="240" height="260">	
+				{% endif %}	
 			</div>
 
 			<div class="col-md-6">

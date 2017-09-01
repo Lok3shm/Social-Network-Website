@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'logout/$', logout, {'template_name' : 'social/logout.html'}, name='logout'),
     url(r'^register/$', register, name='register'),
     url(r'profile/$', profile, name='profile'),
+    url(r'profile/(?P<pk>\d+)/$', profile, name='profile_with_pk'),
     url(r'profile/edit/$', editprofile, name='edit_profile'),
     url(r'change-password/$', change_password, name='edit_password'),
 

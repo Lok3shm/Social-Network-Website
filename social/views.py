@@ -22,8 +22,13 @@ def register(request):
 		return render(request, 'social/registration.html', args)
 
 @login_required
-def profile(request):
-	args = {'user' : request.user}
+def profile(request, pk=None):
+	if pk:
+		user = User.objects.get(pk=pk)
+	else:
+		user = request.user
+
+	args = {'user': user}
 	return render(request, 'social/profile.html', args)
 	
 @login_required

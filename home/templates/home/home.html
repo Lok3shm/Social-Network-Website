@@ -5,8 +5,13 @@
 
   	<div class="container">
 	  	<div class="row">
+	  		<div class="col-md-3">
+				<h4>People You May Know</h4>
+				
+			</div>
 	  		<div class="col-md-6">
 				<form method="post">
+					<h4>Home</h4>
 				  	{% csrf_token %}
 				  	{{ form.post }}
 				  	<br>
@@ -17,6 +22,15 @@
 					<p><strong>{{ post.user.get_full_name }} </strong> {{ post.created }}</p>
 					<p>{{ post.post }}</p>		
 				{% endfor %}
+			</div>
+			<div class="col-md-3">
+				<h4>People You May Know</h4>
+				{% for user in users %}
+					<a href="{% url 'social:profile_with_pk' pk=user.pk %}">
+						<h5>{{ user.username }}</h5>
+					</a>
+				{% endfor %}
+				
 			</div>
 		</div>	
   	</div>
