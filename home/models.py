@@ -7,4 +7,9 @@ class Post(models.Model):
 	user = models.ForeignKey(User)
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
+
+class Friend(models.Model):
+	users = models.ManyToManyField(User)
+	
+		
 	
